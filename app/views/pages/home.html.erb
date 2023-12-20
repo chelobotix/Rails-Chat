@@ -9,26 +9,15 @@
       <div class="ui fluid raised card">
         <div class="content">
           <div class="ui feed">
-            <div class="event">
-              <div class="content">
-                <div class="summary"><em>Elliot Fu</em> added <em>Jenny Hess</em> as a friend</div>
+            <% @messages.each do |message| %>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <em><%= message.user.username.capitalize %>:</em><em><%= message.body %></em>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="event">
-              <div class="content">
-                <div class="summary"><em>Stevie Feliciano</em> added <em>Elliot Fu</em> as a friend</div>
-              </div>
-            </div>
-            <div class="event">
-              <div class="content">
-                <div class="summary"><em>Helen Troy</em> added <em>Christian Rocha</em> as a friend</div>
-              </div>
-            </div>
-            <div class="event">
-              <div class="content">
-                <div class="summary"><em>Christian Rocha</em> test message.</div>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
         <div class="extra content">
