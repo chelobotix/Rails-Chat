@@ -1,0 +1,12 @@
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_with(model: @user, url: users_path, method: :post, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.text_field :username, placeholder: 'Username', required: true %>
+  </div>
+  <div class="field">
+    <%= f.password_field :password, placeholder: 'Password', required: true %>
+  </div>
+
+  <%= f.submit(@user.new_record? ? 'Sign up' : 'Update Account', class: 'ui orange inverted button') %>
+<% end %>

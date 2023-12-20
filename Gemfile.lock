@@ -107,6 +107,7 @@ GEM
     erubi (1.12.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
+    ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -230,10 +231,14 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    semantic-ui-sass (2.4.4.0)
+      sassc
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -288,6 +293,7 @@ DEPENDENCIES
   rubocop (~> 1.57, >= 1.57.2)
   rubocop-rails (~> 2.22, >= 2.22.1)
   selenium-webdriver
+  semantic-ui-sass
   sprockets-rails
   stimulus-rails
   turbo-rails
