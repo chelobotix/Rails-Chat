@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/signup'
-  get 'sessions/login'
+
 
   root 'pages#home'
 
@@ -8,8 +7,11 @@ Rails.application.routes.draw do
   get "/home/", to: "pages#home"
 
   # Sessions
-  get "/signup/", to: "sessions#signup"
-  get "/login/", to: "sessions#login"
+  get "/login/", to: "sessions#create"
+
+  # Users
+  get "/signup/", to: "users#new"
+  resources :users, only: [:create, :edit, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

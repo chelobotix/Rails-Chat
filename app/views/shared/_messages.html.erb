@@ -1,0 +1,8 @@
+<%  flash.each do |key,value|%>
+  <div class="ui container margin-y-20">
+    <div class="ui icon message">
+      <i class="<%= key == 'notice' ? 'green thumbs up outline' : 'red exclamation' %> icon"></i>
+      <p><%= value %></p>
+    </div>
+  </div>
+<% end %>
