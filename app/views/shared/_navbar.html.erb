@@ -1,18 +1,22 @@
 <div class="ui small inverted menu">
   <div class="ui container">
-    <a class="item"> Chatroom </a>
+    <%= link_to 'Chatroom', root_path, class: 'item' %>
     <a class="item"> Messages </a>
     <div class="right menu">
-      <div class="ui dropdown item">
-        Account <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item">Log out</a>
-          <%= link_to 'Log in', login_path, class: 'item' %>
-          <%= link_to 'Sign up', signup_path, class: 'item' %>
+      <div class="item">
+        <div class="ui buttons">
+          <%= link_to signup_path do %>
+            <button class="ui inverted orange button">Sign up</button>
+          <% end %>
+
+          <div class="or"></div>
+          <%= link_to login_path do %>
+            <button class="ui orange button">Log in</button>
+          <% end %>
         </div>
       </div>
       <div class="item">
-        <div class="ui orange button">Sign Up</div>
+        <div class="ui inverted red button">Log out</div>
       </div>
     </div>
   </div>
