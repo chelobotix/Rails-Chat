@@ -3,21 +3,26 @@
     <%= link_to 'Chatroom', root_path, class: 'item' %>
     <a class="item"> Messages </a>
     <div class="right menu">
-      <div class="item">
-        <div class="ui buttons">
-          <%= link_to signup_path do %>
-            <button class="ui inverted orange button">Sign up</button>
-          <% end %>
+      <% unless logged_in? %>
+        <div class="item">
+          <div class="ui buttons">
+            <%= link_to signup_path do %>
+              <button class="ui inverted orange button">Sign up</button>
+            <% end %>
 
-          <div class="or"></div>
-          <%= link_to login_path do %>
-            <button class="ui orange button">Log in</button>
-          <% end %>
+            <div class="or"></div>
+            <%= link_to login_path do %>
+              <button class="ui orange button">Log in</button>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="item">
-        <div class="ui inverted red button">Log out</div>
-      </div>
+      <% else %>
+        <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <div class="item">
+            <div class="ui inverted red button">Log out</div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
