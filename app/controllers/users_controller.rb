@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update]
+  before_action :already_singed_up, only: %i[new]
 
   # New
   def new
@@ -38,5 +39,14 @@ class UsersController < ApplicationController
   # user params
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  # already_singed_up
+  def already_singed_up
+    if logged_in?
+      flash[:alert] = 'You have already signed up'
+      redirect_to(root_path)
+
+    end
   end
 end
