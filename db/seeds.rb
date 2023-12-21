@@ -6,8 +6,10 @@ require 'faker'
 admin = User.create!(username: 'marce', password: "1234")
 Message.create!(body: 'Everybody calm down please', user_id: admin.id)
 
-15.times do
-  user = User.new(username: Faker::Games::StreetFighter.character, password: "1234")
+characters = %w[Ryu Ken Akuma Honda Zagat Cammy Chun-Li Bison Vega Guille Zangief Balrog Alex]
+
+characters.each do |character|
+  user = User.new(username: character, password: "1234")
   if user.valid?
     user.save
   end
