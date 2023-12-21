@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   # Put -> Update
   def update
-    puts('dentraaa classic')
     if @user.update(user_params)
       flash[:notice] = "User #{@user.username} has been updated"
       redirect_to(root_path)
