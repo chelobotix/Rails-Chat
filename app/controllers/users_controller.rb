@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update]
   before_action :already_singed_up, only: %i[new]
+  before_action :require_same_user, only: %i[edit update]
 
   # New
   def new
@@ -47,6 +48,14 @@ class UsersController < ApplicationController
       flash[:alert] = 'You have already signed up'
       redirect_to(root_path)
 
+    end
+  end
+
+  # require_same_user
+  def require_same_user
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = 'You can only edit your own user'
+      redirect_to(@article)
     end
   end
 end
