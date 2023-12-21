@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # Pages
-  get "/home/", to: "pages#home"
+  get "home", to: "pages#home"
 
   # Sessions
-  get "/login/", to: "sessions#create"
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+
 
   # Users
-  get "/signup/", to: "users#new"
+  get "signup", to: "users#new"
   resources :users, only: [:create, :edit, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
