@@ -32,6 +32,8 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
   # get @user
   def set_user
     @user = User.find(params[:id])
