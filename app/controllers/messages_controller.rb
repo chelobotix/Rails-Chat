@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
     if message.save
-      redirect_to(root_path)
+      ActionCable.server.broadcast('marce_room_channel', { foo: message.body })
     else
       flash.now[:alert] = 'There was a problem, please try again later'
     end
