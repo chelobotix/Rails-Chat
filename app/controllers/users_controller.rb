@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update require_same_user]
-  before_action :require_user, except: %i[require_same_user]
   before_action :already_singed_up, only: %i[new]
   before_action :require_same_user, only: %i[edit update]
 
@@ -48,7 +47,6 @@ class UsersController < ApplicationController
     if logged_in?
       flash[:alert] = 'You have already signed up'
       redirect_to(root_path)
-
     end
   end
 
