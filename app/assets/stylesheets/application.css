@@ -26,3 +26,8 @@ a {
 .margin-y-20 {
   margin: 20px 0;
 }
+
+.chat-box {
+  height: 400px;
+  overflow-y: auto;
+}
