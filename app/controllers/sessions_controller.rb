@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :already_singed_up, only: %i[new]
+  before_action :already_singed_up, only: %i[new create]
 
   # get -> new
   def new; end
