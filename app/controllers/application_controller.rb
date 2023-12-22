@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
       redirect_to(login_path)
     end
   end
+
+  # already_singed_up
+  def already_singed_up
+    if logged_in?
+      flash[:alert] = 'You have already signed up'
+      redirect_to(root_path)
+    end
+  end
 end

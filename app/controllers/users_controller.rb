@@ -42,14 +42,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password)
   end
 
-  # already_singed_up
-  def already_singed_up
-    if logged_in?
-      flash[:alert] = 'You have already signed up'
-      redirect_to(root_path)
-    end
-  end
-
   # require_same_user
   def require_same_user
     if current_user != @user && !current_user.admin?
