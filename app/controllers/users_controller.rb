@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update require_same_user]
+  before_action :already_singed_up, only: %i[new]
+  before_action :require_same_user, only: %i[edit update]
 
   # New
   def new
@@ -38,5 +40,13 @@ class UsersController < ApplicationController
   # user params
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  # require_same_user
+  def require_same_user
+    if current_user != @user && !current_user.admin?
+      flash[:alert] = 'You can only edit your own user'
+      redirect_to(root_path)
+    end
   end
 end
