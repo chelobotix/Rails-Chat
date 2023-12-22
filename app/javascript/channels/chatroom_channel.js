@@ -12,6 +12,6 @@ consumer.subscriptions.create("ChatroomChannel", {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     const chatBox = document.getElementById("chatBox")
-    chatBox.append(data.foo)
+    chatBox.insertAdjacentHTML("beforeend", data.messageHtml)
   },
 })
