@@ -17,7 +17,7 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 })
 
-const scrollBottom = () => {
+const scrollBottom = function () {
   if (container) {
     container.scrollTop = container.scrollHeight
   }

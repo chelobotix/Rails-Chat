@@ -17,7 +17,11 @@
             <div class="field">
               <div class="ui fluid icon input">
                 <%=
-                  f.text_field :body, placeholder: 'Enter a message...', required: true, class: 'ui fluid icon input'
+                  f.text_field :body,
+                               placeholder: 'Enter a message...',
+                               required: true,
+                               class: 'ui fluid icon input',
+                               id: 'messageBody'
                 %>
                 <%= f.button '<i class="bordered inverted orange icon edit"></i>'.html_safe, id: 'chatBtn' %>
               </div>
