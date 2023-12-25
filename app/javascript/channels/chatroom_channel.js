@@ -13,5 +13,12 @@ consumer.subscriptions.create("ChatroomChannel", {
     // Called when there's incoming data on the websocket for this channel
     const chatBox = document.getElementById("chatBox")
     chatBox.insertAdjacentHTML("beforeend", data.messageHtml)
+    scrollBottom()
   },
 })
+
+const scrollBottom = () => {
+  if (container) {
+    container.scrollTop = container.scrollHeight
+  }
+}
