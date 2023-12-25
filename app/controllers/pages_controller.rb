@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   # Get -> Home
   def home
-    @messages = Message.all
+    @messages = Message.last_twenty_msgs
     @message = Message.new
   end
 end

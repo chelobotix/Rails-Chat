@@ -1,7 +1,5 @@
-<div class="event">
-  <div class="content">
-    <div class="summary">
-      <em><%= message.user.username.capitalize %>:</em><em><%= message.body %></em>
-    </div>
-  </div>
+<div class="message-container">
+  <img src="/images/vega.gif" width="100px" class="custom-avatar" />
+  <p class="username"><%= message.user.username.capitalize %>:</p>
+  <p><%= message.body %></p>
 </div>

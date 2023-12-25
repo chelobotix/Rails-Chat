@@ -7,11 +7,10 @@
   <div class="ui two column grid">
     <div class="twelve wide column">
       <div class="ui fluid raised card">
-        <div class="content">
-          <div id="chatBox" class="ui feed chat-box">
-            <%= render @messages %>
-          </div>
+        <div id="chatBox" class="chat-box">
+          <%= render @messages %>
         </div>
+
         <div class="extra content">
           <%= form_for(@message,  html: { class: "ui reply form", role: "form" } , url: message_path, remote: true) do |f| %>
             <div class="field">
