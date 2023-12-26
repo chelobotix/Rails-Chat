@@ -1,5 +1,15 @@
 <div class="message-container">
-  <img src="/images/vega.gif" width="100px" class="custom-avatar" />
-  <p class="username"><%= message.user.username.capitalize %>:</p>
+  <img
+    src="<%=
+  if check_character(message.user.username)
+    "/images/#{message.user.username}.gif"
+  else
+    "https://ui-avatars.com/api/?name=#{message.user.username}&background=0D8ABC&color=fff"
+  end
+%>"
+    width="100px"
+    class="custom-avatar"
+  />
+  <p class="username"><%= message.user.username.capitalize %><%= ' (admin) ' if message.user.admin? %>:</p>
   <p><%= message.body %></p>
 </div>

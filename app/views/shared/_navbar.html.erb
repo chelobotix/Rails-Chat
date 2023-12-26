@@ -1,7 +1,6 @@
 <div class="ui small inverted menu">
   <div class="ui container">
-    <%= link_to 'Chatroom', root_path, class: 'item' %>
-    <a class="item"> Messages </a>
+    <%= link_to 'Rails Chat', root_path, class: 'item title' %>
     <div class="right menu">
       <% unless logged_in? %>
         <div class="item">
@@ -17,19 +16,13 @@
           </div>
         </div>
       <% else %>
-        <div class="ui middle aligned centered grid relaxed">
-          <div class="row">
-            <%=
-              link_to current_user.username.capitalize,
-                      edit_user_path(current_user),
-                      class: 'ui inverted header column '
-            %>
-            <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-              <div class="item column">
-                <div class="ui inverted red button">Log out</div>
-              </div>
-            <% end %>
-          </div>
+        <div class="user-container item">
+          <%= link_to current_user.username.capitalize, edit_user_path(current_user), class: 'ui inverted username' %>
+          <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <div class="item">
+              <div class="ui inverted red button">Log out</div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

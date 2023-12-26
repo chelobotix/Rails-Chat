@@ -33,12 +33,13 @@ a {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 10px 0;
 }
 
 .message-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   padding: 0 10px;
 }
 
@@ -54,4 +55,17 @@ a {
   height: 50px;
   border-radius: 50%;
   outline: #f2711c solid 2px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  color: #ffffff;
 }
