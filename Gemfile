@@ -76,3 +76,11 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "redis", "~> 5.0"
+
+gem "sentry-ruby", "~> 5.15"
+
+gem "sentry-rails", "~> 5.15"
