@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update require_same_user]
+  before_action :set_user, only: %i[edit update]
   before_action :already_singed_up, only: %i[new create]
   before_action :require_same_user, only: %i[edit update]
 

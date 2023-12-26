@@ -7,19 +7,22 @@
   <div class="ui two column grid">
     <div class="twelve wide column">
       <div class="ui fluid raised card">
-        <div class="content">
-          <div id="chatBox" class="ui feed chat-box">
-            <%= render @messages %>
-          </div>
+        <div id="chatBox" class="chat-box">
+          <%= render @messages %>
         </div>
+
         <div class="extra content">
-          <%= form_for(@message, html: { class: "ui reply form", role: "form" } , url: message_path) do |f| %>
+          <%= form_for(@message,  html: { class: "ui reply form", role: "form" } , url: message_path, remote: true) do |f| %>
             <div class="field">
               <div class="ui fluid icon input">
                 <%=
-                  f.text_field :body, placeholder: 'Enter a message...', required: true, class: 'ui fluid icon input'
+                  f.text_field :body,
+                               placeholder: 'Enter a message...',
+                               required: true,
+                               class: 'ui fluid icon input',
+                               id: 'messageBody'
                 %>
-                <%= f.button '<i class="bordered inverted orange icon edit"></i>'.html_safe %>
+                <%= f.button '<i class="bordered inverted orange icon edit"></i>'.html_safe, id: 'chatBtn' %>
               </div>
             </div>
           <% end %>
@@ -29,9 +32,7 @@
 
     <div class="four wide column">
       <div class="ui vertical inverted menu">
-        <a class="active item"> Home </a>
-        <a class="item"> Messages </a>
-        <a class="item"> Friends </a>
+        <%= link_to 'Home', root_path, class: 'active item' %>
       </div>
     </div>
   </div>

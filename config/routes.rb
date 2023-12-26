@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # Messages
   post "message", to: "messages#create"
 
+  # Channel
+  mount ActionCable.server, at: '/cable'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
